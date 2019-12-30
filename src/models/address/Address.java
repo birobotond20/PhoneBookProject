@@ -1,4 +1,4 @@
-package address;
+package models.address;
 
 public class Address {
 
@@ -47,5 +47,31 @@ public class Address {
 
   public void setStreet(String street) {
     this.street = street;
+  }
+
+  public boolean hasFieldMatch(String searchWord) {
+    return
+        this.country.equalsIgnoreCase(searchWord) ||
+        this.zipCode.equalsIgnoreCase(searchWord) ||
+        this.city.equalsIgnoreCase(searchWord) ||
+        this.street.equalsIgnoreCase(searchWord);
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+
+    if (!(obj instanceof Address)) {
+      return false;
+    }
+
+    Address other = (Address) obj;
+    return
+        this.country.equals(other.getCountry()) &&
+        this.zipCode.equals(other.getZipCode()) &&
+        this.city.equals(other.getCity()) &&
+        this.street.equals(other.getStreet());
   }
 }
