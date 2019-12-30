@@ -23,5 +23,11 @@
 .idea/
 *.iml
 
+# IntelliJ IDEA out folder #
+out/
+
 # Text files #
 *.txt
+
+# Kotlin modules #
+*.kotlin_module
