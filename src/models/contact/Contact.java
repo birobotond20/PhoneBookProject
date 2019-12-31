@@ -16,6 +16,7 @@ public class Contact {
   private List<Address> addresses;
 
   public Contact() {
+    this.title = Title.DEFAULT;
   }
 
   public Contact(String firstName, String lastName, LocalDate dateOfBirth, List<String> phoneNumbers,
@@ -51,7 +52,7 @@ public class Contact {
   }
 
   public void setTitle(String title) {
-      this.title = (title == null) ? Title.DEFAULT : convertToTitle(title);
+    this.title = (title == null) ? Title.DEFAULT : convertToTitle(title);
   }
 
   public String getFirstName() {
@@ -99,10 +100,13 @@ public class Contact {
   }
 
   public static LocalDate convertToLocalDate(String date) {
-    String formattedDate = date.substring(0,4) + "-" +
-        date.substring(4,6) + "-" +
-        date.substring(6);
-    return LocalDate.parse(formattedDate);
+    if (!date.contains("-")) {
+      String formattedDate = date.substring(0, 4) + "-" +
+          date.substring(4, 6) + "-" +
+          date.substring(6);
+      return LocalDate.parse(formattedDate);
+    }
+    return LocalDate.parse(date);
   }
 
   public boolean isBirthdayWithinRange(String startDate, String endDate) {
@@ -111,8 +115,17 @@ public class Contact {
     return isAfter && isBefore;
   }
 
-  public static Title convertToTitle(String title) {
+  private Title convertToTitle(String title) {
     return Title.getValueFrom(title);
+  }
+
+  public boolean hasMatchingAddressField(String query) {
+    boolean hasAddressWithField = false;
+    for (Address address : this.addresses) {
+      hasAddressWithField = address.hasFieldMatch(query);
+    }
+
+    return hasAddressWithField;
   }
 
   @Override
