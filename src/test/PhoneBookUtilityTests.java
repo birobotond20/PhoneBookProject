@@ -3,7 +3,7 @@ package test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import models.Title;
+import models.title.Title;
 import models.contact.Contact;
 import models.phonebook.PhoneBookUtility;
 import org.junit.Before;

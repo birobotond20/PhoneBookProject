@@ -1,6 +1,6 @@
 package models.contact;
 
-import models.Title;
+import models.title.Title;
 import models.address.Address;
 
 import java.time.LocalDate;

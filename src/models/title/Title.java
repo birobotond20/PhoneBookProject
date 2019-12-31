@@ -1,4 +1,4 @@
-package models;
+package models.title;
 
 import java.util.EnumSet;
 import java.util.HashMap;

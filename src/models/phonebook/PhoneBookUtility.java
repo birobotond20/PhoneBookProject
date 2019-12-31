@@ -1,7 +1,6 @@
 package models.phonebook;
 
-import models.Title;
-import models.address.Address;
+import models.title.Title;
 import models.contact.Contact;
 
 import java.util.List;

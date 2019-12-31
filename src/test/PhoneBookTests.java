@@ -4,13 +4,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import exception.ContactException;
-import models.Title;
+import models.title.Title;
 import models.address.Address;
 import models.contact.Contact;
 import models.phonebook.PhoneBook;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import java.io.IOException;
 import java.nio.file.Files;
